@@ -1,3 +1,7 @@
-[{"name": "John", "age": [1, 2, 30]},
-  {"name": "John2", "age": true}
-]
+{
+  "name": "John",
+  "info": {
+    "age": 40,
+    "sex": "male"
+  }
+}

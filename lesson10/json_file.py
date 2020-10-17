@@ -1,6 +1,6 @@
-# import json  # модуль работы с форматом json
-#
-# my_dict = {"name": 'John', "age": 30}
+import json  # модуль работы с форматом json
+
+# my_dict = {"name": 'John', "info": {"age": 30, "sex": "male"}}
 
 # my_json = json.dumps(my_dict)  # преобразует словарь в строку. dumps - dump string
 # print(my_json, type(my_json))
@@ -15,12 +15,12 @@
 # print(my_dict_2, type(my_dict_2))
 #
 # print('---------------------------------')
-# outfile = "lesson10/new.json"   # имя файла
-# data = my_dict          # данные для записи в файл
-
+# outfile = "new.json"   # имя файла
+# data = {"name": 'John', "info": {"age": 40, "sex": "male"}}        # данные для записи в файл
+#
 # with open(outfile, 'w') as json_file:
-#     json.dump(data, json_file)      # dump - dump object
-
+#     json.dump(data, json_file, indent=2)      # dump - dump object
+#
 # with open(outfile, 'r') as json_file:
 #     data = json.load(json_file)     # load - load object
-# print(data, type(data))
+#     print(data, type(data))

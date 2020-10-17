@@ -1,1 +1,1 @@
-{"name": "John", "age": 30}
+{"name": "John", "info": {"age": 30, "sex": "male"}}
