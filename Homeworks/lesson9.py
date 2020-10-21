@@ -14,9 +14,9 @@ def get_name(line):
     res_name = ''
     name = line.split("-")[-1]
     if "'s" in name:
-        res_name = line.split("'s")[0].strip()
+        res_name = name.split("'s")[0].strip()
     elif " d" in name:
-        res_name = line.split(" d")[0].strip()
+        res_name = name.split(" d")[0].strip()
     return res_name
 
 
@@ -41,12 +41,23 @@ def get_author_dict_dummy(line):
         res_dict["d_date"] = date
     return res_dict if res_dict["name"] else {}
 
+
+def get_author_dict(line: str) -> dict:
+    res = {}
+    dummy_dict = get_author_dict_dummy(line)
+    if dummy_dict:
+        res["name"] = dummy_dict["name"]
+        res["date"] = dummy_dict.get("b_date") or dummy_dict.get("d_date")
+    return res
+
+
 def get_dict_list(lines):
     result_list = []
     for line in lines:
-        res_dict = get_author_dict_dummy(line)
+        res_dict = get_author_dict(line)
         if res_dict:
             result_list.append(res_dict)
     return result_list
+
 
 print(get_dict_list(read_authors("authors.txt")))
